@@ -1,0 +1,371 @@
+/**Shared for all. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+
+@font-face {
+  font-family: theSeasons;
+  src: url(fonts/the-seasons-regular.ttf);
+}
+
+html, body {
+  width: 100%;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Optional: Prevent horizontal scroll if you don’t need it */
+}
+
+body {
+  font-family: "Montserrat";
+  scroll-behavior: smooth;
+  background-color: white;
+}
+
+::selection {
+  background: rgb(255, 255, 255);
+}
+
+#page-title {
+  padding-top: 15px;
+}
+
+a{
+  color: black;;
+}
+
+/** Shared for nav-bar*/
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.navbar-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(92, 92, 92, 0);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar-logo {
+  padding-left: 50px;
+  padding-right: 50px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+.nav-links li a {
+  padding-left: 50px;
+  padding-right: 50px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-links a:hover {
+  color: #6a6926;
+  font-weight: bold;
+  transition: all ease 0.1s;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .toggle-bar {
+  height: 3px;
+  width: 100%;
+  background-color: #6a6926;
+  border-radius: 20px;
+}
+
+/**Shared for al buttons*/
+.button-class {
+  width: 200px;
+  border-radius: 5px;
+  border-color: #272932;
+  background-color: #272932;
+  color: #f7f1f0;
+}
+.button-class:hover {
+  background-color: #dae2e7;
+  border-color: #dae2e7;
+  color: #272932
+}
+
+/**---index.html---*/
+
+.index-introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-family: theSeasons;
+
+}
+
+.index-introduction .image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.index-introduction .image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.index-introduction .overlay-text {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  padding: 10px 20px; 
+  text-align: center;
+}
+
+.index-introduction h1 :hover {
+  color: #6a6926;
+  transition: all ease 0.8s;
+}
+
+.index-introduction h1 {
+  color: #ffffff;
+  font-size: 100px;
+
+}
+
+.cm-button{
+  margin-top: 10px;
+  width: 150px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border: solid 3px #6a6926;
+  color: #f1f1f1;
+  background-color: #6a6926;
+  border-radius: 20px;
+}
+
+.cm-button:hover{
+    color: black;
+    border:solid 3px black;
+    background-color: white;
+    transition: all ease 0.7s;
+}
+
+/* -- RSVP  --*/
+
+
+.rsvp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-family: theSeasons;
+  background-image: url(images/Untitled\ design\ \(2\).png);
+
+}
+
+.rsvp .rsvp_card {
+
+  height: 80%;
+  width: 80%;
+  background-color: #ffffff;
+
+}
+
+
+/*--- Shared for footer ---*/
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #6a6926;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+
+/** ----------------------------------------------------------------TIMELINE-------------------------------------------------------------------*/
+
+
+.timeline {
+  margin: 0 auto;
+  max-width: max-content;
+  padding: 25px;
+  display: grid;
+  width: 1000px;
+  grid-template-columns: 1fr 3px 1fr;
+  color: #6a6926;
+  text-align: center;
+}
+
+.timeline__component {
+  margin: 10px 10px 10px 10px;
+}
+
+
+/* LEAVE TILL LAST */
+
+.n-boda_title {
+  margin: 40px 10px 0px 10px;
+  font-family: theSeasons;
+  color: #6a6926;
+}
+
+.n-boda_title h1{
+  margin: 0; 
+}
+
+.n-boda{
+  margin-top: 35px;
+  align-items: center;
+}
+
+.timeline__middle {
+  position: relative;
+  background: #6a6926;
+}
+
+/* LEAVE TILL LAST */
+.timeline__date--right {
+  text-align: right;
+}
+
+.timeline__paragraph {
+  line-height: 1.0;
+  text-align: center;
+}
+
+.timeline__paragraph b {
+  font-family: theSeasons;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+/** Preguntas frequentes **/
+.preg-frequentes{
+  font-family: theSeasons;
+  color: #6a6926;
+}
+
+.preg-frequentes_title {
+  margin: 40px 10px 0px 10px;
+  margin: 0; 
+}
+
+.preg-frequentes_container p{
+  font-family: "Montserrat";
+}
+
+
+/** -------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/**Responsive nav bar**/
+@media screen and (max-device-width: 950px) {
+  .toggle-button {
+    display: flex;
+    transform: scale(0.85);
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-home {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5.5%;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links ul li {
+    text-align: center;
+    font-size: 1rem;
+    margin: 5px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li:hover {
+    background-color: #d3d2d24f;
+    transition: all 0.5s;
+  }
+
+  /**responsive index*/
+
+  .cm-button{
+    color: black;
+  }
+
+   .index-introduction{
+    max-width: 100%;
+   }
+
+   /** Responsive index introduction **/
+  
+  .index-introduction .overlay-text h1 {
+    font-size: 2.5rem;
+  }
+
+   /** Responsive wedding timeline **/
+
+  .n-boda {
+    margin-top: 0%;
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;
+  }
+
+  .timeline{
+    margin: 0%;
+    padding: 0%;
+    transform: scale(0.85);
+  }
+
+}
+
+
+
