@@ -17,7 +17,7 @@ html, body {
 body {
   font-family: "Montserrat";
   scroll-behavior: smooth;
-  background-color: white;
+  background-color: #f8f8ee;
 }
 
 ::selection {
@@ -29,7 +29,7 @@ body {
 }
 
 a{
-  color: black;;
+  color: black;
 }
 
 /** Shared for nav-bar*/
@@ -63,7 +63,6 @@ a {
   padding-left: 50px;
   padding-right: 50px;
   font-weight: bold;
-  color: black;
   text-decoration: none;
 }
 
@@ -100,11 +99,11 @@ a {
 .toggle-button .toggle-bar {
   height: 3px;
   width: 100%;
-  background-color: #6a6926;
+  background-color: #ffffff;
   border-radius: 20px;
 }
 
-/**Shared for al buttons*/
+/** Shared for all buttons **/
 .button-class {
   width: 200px;
   border-radius: 5px;
@@ -126,21 +125,24 @@ a {
   justify-content: center;
   text-align: center;
   font-family: theSeasons;
-
+  text-decoration: none;
+  color: #ffffff;
 }
 
-.index-introduction .image-container {
+.index-introduction .index-image-container {
   position: relative;
   display: inline-block;
 }
 
-.index-introduction .image-container img {
+.index-introduction .index-image-container img {
   display: block;
   width: 100%;
+  opacity: 50%;
   height: auto;
 }
 
 .index-introduction .overlay-text {
+  width: 80%;
   position: absolute;
   top: 50%; 
   left: 50%; 
@@ -155,34 +157,12 @@ a {
 }
 
 .index-introduction h1 {
-  color: #ffffff;
+  width: 100%;
   font-size: 100px;
 
 }
 
-.cm-button{
-  margin-top: 10px;
-  width: 150px;
-  height: 45px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  border: solid 3px #6a6926;
-  color: #f1f1f1;
-  background-color: #6a6926;
-  border-radius: 20px;
-}
-
-.cm-button:hover{
-    color: black;
-    border:solid 3px black;
-    background-color: white;
-    transition: all ease 0.7s;
-}
-
 /* -- RSVP  --*/
-
-
 .rsvp {
   display: flex;
   flex-direction: column;
@@ -191,19 +171,15 @@ a {
   align-items: center;
   font-family: theSeasons;
   background-image: url(images/Untitled\ design\ \(2\).png);
-
 }
 
 .rsvp .rsvp_card {
-
   height: 80%;
   width: 80%;
   background-color: #ffffff;
-
 }
 
-
-/*--- Shared for footer ---*/
+/* footer **/
 
 footer {
   display: flex;
@@ -211,8 +187,12 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #6a6926;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  color: #6a6926;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+}
+
+footer p {
+  margin: 10px;
 }
 
 
@@ -275,6 +255,10 @@ footer {
 
 /** Preguntas frequentes **/
 .preg-frequentes{
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  text-align: center;
   font-family: theSeasons;
   color: #6a6926;
 }
@@ -282,6 +266,10 @@ footer {
 .preg-frequentes_title {
   margin: 40px 10px 0px 10px;
   margin: 0; 
+}
+
+.preg-frequentes_container {
+  width: 50%
 }
 
 .preg-frequentes_container p{
@@ -309,8 +297,10 @@ footer {
   }
 
   .navbar-home {
+  
     flex-direction: column;
     align-items: flex-start;
+    z-index: 11;
     padding: 5.5%;
   }
 
@@ -363,6 +353,11 @@ footer {
     margin: 0%;
     padding: 0%;
     transform: scale(0.85);
+  }
+
+  /** Responsive preg freq **/
+  .preg-frequentes_container {
+    width: 80%
   }
 
 }
