@@ -1,33 +1,15 @@
+from website import create_app
+"""
+Running this file will launch the server and start the flask application.
+This application was created by Gabriel E. Rodriguez Garcia.
+The purpose of this application is to Help nursing homes and doctors better communicate about the treatment of patients
+This Project is being made for my Mini-Thesis class SICI-4038 at the Univesity of Puerto Rico at Bayamon.
+"""
 
-##
-# Flask script to connect to the DB and get guest data.
-##
-import os
-from flask import Flask, render_template, request, Response, redirect, url_for, session
+app = create_app()
 
-# Create flask object
-app = Flask(__name__)
 
-@app.route('/landing_validation', methods=['GET', 'POST'])
-def landing_validation():
-    if request.method == 'POST':
-        password = request.form.get('password')
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000, debug=False)
 
-        ## Placeholder: we need to check if the password is a valid id in the database (exists)
-        ## if it's not -> error, stay in landing.html
-        ## if it is -> redirect and gather the guest data.
-        headGuestId= "placeholderId"
-        app.secret_key = headGuestId
-        ## Right now just checking if true to keep progam running -> to be fixed.
-        if (True):
-            return redirect('get_party')
-
-        ## else send error message on landing screen
-
-@app.route('/get_party')
-def get_party():
-    session.get('headGuestId')
-    
-    ## Placeholder as well
-    partyList = []
-    return render_template('index.html', partyList=partyList)
+   
