@@ -1,14 +1,11 @@
 ##
 # Flask script to connect to the DB and get guest data.
+# New page to handle all of flasks routing. Here we can make use as a bridge for database calls
 ##
-import os
 from flask import (
-    Flask,
     render_template,
     request,
-    Response,
     redirect,
-    url_for,
     session,
     Blueprint,
 )
