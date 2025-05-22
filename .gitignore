@@ -1,2 +1,8 @@
 # Ignore the cache folder inside the website directory
-/website/__pycache__
+**/__pycache__/
+
+#Ignore the Database
+website/data/Wedding.db
+
+#Ignore env file
+.env

@@ -1,0 +1,63 @@
+{
+  "head_parties": [
+    {
+      "id_pk": 1,
+      "first_name": "María",
+      "initial": "L",
+      "paternal_last_name": "González",
+      "maternal_last_name": "Ramírez",
+      "is_confirmed": true,
+      "passcode": {
+        "id_pk": "MARIAG123"
+      },
+      "guests": [
+        {
+          "id_pk": 1,
+          "first_name": "Lucía",
+          "initial": null,
+          "paternal_last_name": "González",
+          "maternal_last_name": "Ramírez"
+        },
+        {
+          "id_pk": 2,
+          "first_name": "Mateo",
+          "initial": "A",
+          "paternal_last_name": "González",
+          "maternal_last_name": null
+        }
+      ]
+    },
+    {
+      "id_pk": 2,
+      "first_name": "José",
+      "initial": null,
+      "paternal_last_name": "Martínez",
+      "maternal_last_name": "López",
+      "is_confirmed": false,
+      "passcode": {
+        "id_pk": "JOSEM456"
+      },
+      "guests": []
+    },
+    {
+      "id_pk": 3,
+      "first_name": "Carmen",
+      "initial": "R",
+      "paternal_last_name": "Sánchez",
+      "maternal_last_name": null,
+      "is_confirmed": true,
+      "passcode": {
+        "id_pk": "CARMENS789"
+      },
+      "guests": [
+        {
+          "id_pk": 3,
+          "first_name": "Diego",
+          "initial": "E",
+          "paternal_last_name": "Sánchez",
+          "maternal_last_name": "Ortega"
+        }
+      ]
+    }
+  ]
+}
