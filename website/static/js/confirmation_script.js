@@ -2,32 +2,21 @@
 
 const toggle = document.getElementsByClassName("toggle-button")[0];
 const navLinks = document.getElementsByClassName("nav-links")[0];
-const contentArea = document.getElementById("contentArea");
+const contentArea = document.getElementById("contentArea")[0];
 
 toggle.addEventListener("click", (event) => {
   event.preventDefault();
   navLinks.classList.toggle("active");
-  if(contentArea) {
-    contentArea[0].classList.toggle("shifted");
-  }
+  contentArea.classList.toggle("shifted");
 });
 
 document.querySelectorAll(".nav-links a").forEach((link) => {
   link.addEventListener("click", (event) => {
-
-    if (document.body.classList.contains('warn-on-leave')) {
-      const confirmed = confirm("You have unsaved changes. Are you sure you want to leave this page?");
-      if (!confirmed) {
-        event.preventDefault();
-      }
-    }
-
     if (navLinks.classList.contains("active")) {
       navLinks.classList.remove("active");
     }
   });
 });
-
 
 /** Countown */
 var countDownDate = new Date("Dec 27, 2025 15:37:25").getTime();
