@@ -11,6 +11,13 @@
     </head>
 
     <body class="index-body">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <script>
+            alert("{{ messages[0] }}");
+          </script>
+        {% endif %}
+      {% endwith %}
         <form class="landing-container" method="POST">
             <div class="landing-form">
                 <img src="../static/images/landing-logo.png" alt="landing logo">
