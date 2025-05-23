@@ -63,4 +63,4 @@ def get_party():
     ## stores the head of party name and their guests inside of party_list to see if they load on the website
     party_list = [format_name(head_party)] + [format_name(guest) for guest in guests]
 
-    return render_template("index.html", partyList=party_list)
+    return render_template("index.html", partyList=party_list, headOfParty=head_party.first_name)

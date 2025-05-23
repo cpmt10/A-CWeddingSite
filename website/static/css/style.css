@@ -1,17 +1,22 @@
-/**Shared for all. */
+/**
+* CSS File for index.html 
+**/
+
+/** Default font. */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
 
 @font-face {
   font-family: theSeasons;
-  src: url(../static/fonts/the-seasons-regular.ttf);
+  src: url(../fonts/the-seasons-regular.ttf);
 }
 
+/** Base CSS for the whole file. This may be overriden per class, id, etc. **/
 html, body {
   width: 100%;
   min-width: 100vw;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Optional: Prevent horizontal scroll if you don’t need it */
+  overflow-x: hidden; /* Prevent horizontal scroll if you don’t need it */
 }
 
 body {
@@ -24,15 +29,21 @@ body {
   background: rgb(255, 255, 255);
 }
 
-#page-title {
-  padding-top: 15px;
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #6a6926;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
 }
 
-a{
-  color: black;
+footer p {
+  margin: 10px;
 }
 
-/** Shared for nav-bar*/
+/** CSS for nav-bar. **/
 ul {
   list-style: none;
 }
@@ -59,7 +70,7 @@ a {
   padding-bottom: 20px;
 }
 
-.navbar-logo {
+.navbar-logo { /** maybe delete **/
   padding-left: 50px;
   padding-right: 50px;
   font-weight: bold;
@@ -103,21 +114,7 @@ a {
   border-radius: 20px;
 }
 
-/** Shared for all buttons **/
-.button-class {
-  width: 200px;
-  border-radius: 5px;
-  border-color: #272932;
-  background-color: #272932;
-  color: #f7f1f0;
-}
-.button-class:hover {
-  background-color: #dae2e7;
-  border-color: #dae2e7;
-  color: #272932
-}
-
-/**---index.html---*/
+/** CSS for index introduction section (home) **/
 
 .index-introduction {
   display: flex;
@@ -151,18 +148,29 @@ a {
   text-align: center;
 }
 
-.index-introduction h1 :hover {
-  color: #6a6926;
-  transition: all ease 0.8s;
-}
-
 .index-introduction h1 {
   width: 100%;
   font-size: 100px;
 
 }
 
-/* -- RSVP  --*/
+/** CSS for Welcome message **/
+.n-boda_title {
+  margin: 20px 10px 10px 10px;
+  font-family: theSeasons;
+}
+
+.n-boda_title h1{
+  margin: 0; 
+}
+
+.welcome {
+  padding: 15px 10px 0px 10px;
+  text-align: center;
+  color: #6a6926;
+}
+
+/** CSS for RSVP section. **/
 .rsvp {
   display: flex;
   flex-direction: column;
@@ -178,25 +186,11 @@ a {
   background-color: #ffffff;
 }
 
-/* footer **/
-
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/** CSS for timeline section. **/
+.n-boda{
+  margin-top: 35px;
   align-items: center;
-  text-align: center;
-  color: #6a6926;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
 }
-
-footer p {
-  margin: 10px;
-}
-
-
-/** ----------------------------------------------------------------TIMELINE-------------------------------------------------------------------*/
-
 
 .timeline {
   margin: 0 auto;
@@ -213,32 +207,13 @@ footer p {
   margin: 10px 10px 10px 10px;
 }
 
-
-/* LEAVE TILL LAST */
-
-.n-boda_title {
-  margin: 40px 10px 0px 10px;
-  font-family: theSeasons;
-  color: #6a6926;
-}
-
-.n-boda_title h1{
-  margin: 0; 
-}
-
-.n-boda{
-  margin-top: 35px;
-  align-items: center;
-}
-
 .timeline__middle {
   position: relative;
   background: #6a6926;
 }
 
-/* LEAVE TILL LAST */
 .timeline__date--right {
-  text-align: right;
+  text-align: center;
 }
 
 .timeline__paragraph {
@@ -252,7 +227,8 @@ footer p {
   font-weight: bolder;
 }
 
-/** Preguntas frequentes **/
+/** CSS for faq section. **/
+
 .preg-frequentes{
   display: flex;
   justify-content: center; 
@@ -275,11 +251,26 @@ footer p {
   font-family: "Montserrat";
 }
 
+/**
+* Responsive CSS for both smartphone devices and special cases.
+**/
 
-/** -------------------------------------------------------------------------------------------------------------------------------------------*/
-
-/**Responsive nav bar**/
+/** Responsive CSS for smartphones **/
 @media screen and (max-device-width: 950px) {
+
+  /** Responsive CSS for the index section (home). **/
+  .index-introduction .index-image-container {
+      background-image: url("../images/landing-img-smartphone.JPG");
+      background-size: cover;
+      height: 650px;
+      opacity: 50%;
+  }
+
+  .index-introduction .index-image-container img {
+    opacity: 0%;
+  }
+
+  /** Responsive nav-bar. Might change later on. **/
   .toggle-button {
     display: flex;
     transform: scale(0.85);
@@ -296,7 +287,6 @@ footer p {
   }
 
   .navbar-home {
-  
     flex-direction: column;
     align-items: flex-start;
     z-index: 11;
@@ -316,6 +306,7 @@ footer p {
 
   .nav-links.active {
     display: flex;
+    background-color: #f8f8ee;
   }
 
   .nav-links li:hover {
@@ -323,30 +314,24 @@ footer p {
     transition: all 0.5s;
   }
 
-  /**responsive index*/
-
-  .cm-button{
-    color: black;
-  }
+  /** Responsive CSS for the index section (home). **/
 
    .index-introduction{
     max-width: 100%;
    }
 
-   /** Responsive index introduction **/
-  
   .index-introduction .overlay-text h1 {
     font-size: 2.5rem;
   }
 
-   /** Responsive wedding timeline **/
-
   .n-boda {
     margin-top: 0%;
     display: flex;
-    justify-content: center; /* horizontal centering */
+    justify-content: center;
     align-items: center;
   }
+
+  /** Responsive CSS for wedding timeline section. **/
 
   .timeline{
     margin: 0%;
@@ -354,12 +339,40 @@ footer p {
     transform: scale(0.85);
   }
 
-  /** Responsive preg freq **/
+  /** Responsive CSS for FAQ section. **/
   .preg-frequentes_container {
     width: 80%
   }
-
 }
 
+/** Special cases: responsive elements only for computers. **/
+@media only screen and (min-device-width: 990px)  {
 
+  /** Responsive CSS for the index section (home). **/
+  .index-introduction .index-image-container {
+    background-image: url("../images/landing-img-smartphone.JPG");
+    opacity: 50%;
+    height: 800px; /** Manually make div an approximate computer size*/
+    background-position: center center; /** Start repeating from the middle*/
+    background-size: contain;
+    background-repeat: repeat-x;
+    transition: all 0.3s ease;
+  }
 
+  .index-introduction .index-image-container img {
+    opacity: 0%;
+    height: 800px; /** Manually make div an approximate computer size*/
+  }
+
+  .index-introduction .index-image-container a {
+    color: white;
+    font-weight: bolder;
+    opacity: 100%;
+  }
+
+  .index-introduction .index-image-container a:hover{
+    color: #6a6926;
+    transition: all 0.3s ease;
+  }
+
+}

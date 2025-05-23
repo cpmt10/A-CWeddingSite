@@ -1,6 +1,11 @@
-/**Shared for all. */
+/**
+* CSS File for landing.html 
+**/
+
+/** Default font. */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
 
+/** Base CSS for the whole file. This may be overriden per class, id, etc. **/
 html, body {
   width: 100%;
   min-width: 100vw;
@@ -16,8 +21,7 @@ body {
   background-color: #f8f8ee;
 }
 
-/** Landing form **/
-
+/** CSS for landing form section. **/
 .landing-form {
   text-align: center;
 }
@@ -39,7 +43,6 @@ body {
     margin-right: auto;
 }
 
-/** identification form **/
 .landing-container #pass{
     background-color: #6a6926;
     width: 60%;
