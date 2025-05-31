@@ -22,7 +22,7 @@ body {
   min-width: 100vw;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll if you don’t need it */
+  overflow: hidden;
   font-family: glaciarIndifference;
 }
 
@@ -138,13 +138,6 @@ a {
   display: inline-block;
 }
 
-.index-introduction .index-image-container img {
-  display: block;
-  width: 100%;
-  opacity: 50%;
-  height: auto;
-}
-
 .index-introduction .overlay-text {
   width: 80%;
   position: absolute;
@@ -155,180 +148,6 @@ a {
   text-align: center;
 }
 
-.index-introduction h1 {
-  width: 100%;
-  font-size: 100px;
-  font-weight: 200;
-}
-
-/** CSS for Welcome message **/
-.n-boda_title {
-  margin: 20px 10px 10px 10px;
-  font-family: theSeasons;
-}
-
-.n-boda_title h1 {
-  margin: 0;
-  color: #6a6926;
-}
-
-.welcome {
-  padding: 15px 15px 0px 15px;
-  text-align: center;
-  color: #6a6926;
-}
-
-/** CSS for RSVP section. **/
-.rsvp {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  color: #6a6926;
-}
-
-.rsvp .rsvp_title {
-  font-family: theSeasons;
-}
-
-.rsvp .rsvp_card {
-  height: 80%;
-  width: 80%;
-}
-
-.rsvp .confirm_button {
-  background-color: rgba(51, 51, 51, 0.05);
-  border-radius: 25px;
-  border-width: 0;
-  color: #6a6926;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  list-style: none;
-  margin: 0;
-  padding: 10px 12px;
-  text-align: center;
-  transition: all 200ms;
-  vertical-align: baseline;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.rsvp .confirm_button:hover {
-  background-color: #6a692659;
-  color: #ffffff;
-}
-
-/** CSS for timeline section. **/
-.n-boda {
-  margin-top: 35px;
-  align-items: center;
-}
-
-.timeline {
-  margin: 0 auto;
-  max-width: max-content;
-  padding: 25px;
-  display: grid;
-  width: 1000px;
-  grid-template-columns: auto 3px auto;
-  color: #6a6926;
-  text-align: center;
-}
-
-.timeline__component {
-  margin: 10px 10px 10px 10px;
-}
-
-.timeline__middle {
-  position: relative;
-  background: #6a6926;
-}
-
-.timeline__date--right {
-  text-align: center;
-}
-
-.timeline__paragraph {
-  line-height: 1;
-  text-align: center;
-}
-
-.timeline__paragraph b {
-  font-family: theSeasons;
-  font-size: 25px;
-  font-weight: bolder;
-}
-
-.timeline_button {
-  background-color: #6a6926;
-  border-radius: 25px;
-  border-width: 0;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  list-style: none;
-  margin: 0;
-  padding: 10px 12px;
-  text-align: center;
-  transition: all 200ms;
-  vertical-align: baseline;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.timeline_button a {
-  color: #f8f8ee;
-}
-
-/** CSS for faq section. **/
-
-.preg-frequentes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #6a6926;
-}
-
-.preg-frequentes #preg {
-  font-family: theSeasons;
-}
-
-.preg-frequentes_container {
-  width: 50%;
-}
-
-/** CSS for countdown section **/
-.countdown_container {
-  font-family: theSeasons;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.countdown_container div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.countdown_container .days,
-.hours,
-.minutes,
-.seconds {
-  font-size: 80px;
-}
-
 /**
 * Responsive CSS for both smartphone devices and special cases.
 **/
@@ -337,7 +156,6 @@ a {
 @media screen and (max-device-width: 950px) {
   /** Responsive CSS for the index section (home). **/
   .index-introduction .index-image-container {
-    background-image: url("../images/landing-img-smartphone.JPG");
     background-size: cover;
     height: 650px;
     opacity: 75%;
@@ -368,12 +186,11 @@ a {
 
   /* Update nav-links to slide in from left on mobile */
   .nav-links {
-    position: fixed;
-    right: -250px;
+    position: fixed; /* fix to viewport */
+    right: -250px; /* hide off screen */
     top: 0;
-    width: 185px;
-    height: 100vh;
-    background-color: #f8f8ee;
+    width: 250px; /* make sure this matches margin-left above */
+    height: 100%;
     flex-direction: column;
     padding-top: 3rem;
     transition: right 0.3s ease;
@@ -412,72 +229,12 @@ a {
     font-size: 2.5rem;
   }
 
-  .n-boda {
-    margin-top: 0%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /** Responsive CSS for wedding timeline section. **/
-
-  .timeline {
-    max-width: 90%;
-    padding: 1rem;
-    grid-template-columns: minmax(0, 1fr) 3px minmax(0, 1fr);
-  }
-
-  .timeline img {
-    width: 85%;
-    height: 85%;
-  }
-
-  .timeline__component p {
-    max-width: 100%;
-    white-space: normal;
-
-    text-align: center;
-  }
-
-  .timeline_button {
-    width: 80%;
-    font-size: 0.8rem;
-  }
-
-  timeline__middle {
-    position: relative;
-    background: #dbc5ac;
-  }
-
-  .timeline__point {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 15px;
-    height: 15px;
-    background: #6a6926;
-    border-radius: 50%;
-  }
-
-  /* LEAVE TILL LAST */
-  .timeline__point--bottom {
-    top: initial;
-    bottom: 0;
-  }
-
-  /** Responsive CSS for FAQ section. **/
-  .preg-frequentes_container {
-    width: 80%;
-  }
 }
 
 /** Special cases: responsive elements only for computers. **/
 @media only screen and (min-device-width: 990px) {
   /** Responsive CSS for the index section (home). **/
   .index-introduction .index-image-container {
-    background-image: url("../images/landing-img-smartphone.JPG");
-    opacity: 75%;
     height: 800px; /** Manually make div an approximate computer size*/
     background-position: center center; /** Start repeating from the middle*/
     background-size: contain;

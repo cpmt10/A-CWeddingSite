@@ -1,138 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="/x-icon" href="../static/images/AyCFavicon.png" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="../static/js/script.js" defer></script>
+    <title>Claudia y Alexis</title>
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-        <link rel="icon" type="/x-icon" href="../static/images/AyCFavicon.png">
-        <link rel="stylesheet" href="../static/css/style.css">
-        <script src="../static/js/script.js" defer></script>
-        <title>Claudia y Alexis</title>
-    </head>
+  <body class="index-body">
+    <div class="index-introduction">
+      <div class="index-image-container" id="home">
+        <nav class="navbar-home">
+          <!-- Hamburger toggle button (only after passing max width) -->
+          <a href="#" class="toggle-button">
+            <span class="toggle-bar"></span>
+            <span class="toggle-bar"></span>
+            <span class="toggle-bar"></span>
+          </a>
 
-    <body class="index-body">
-        <div class="index-introduction">
-            <div class="index-image-container">
-                <img src="../static/images/FullSizeRender_home.JPG" alt="image">
-                <div class="overlay-text">
-                    <h1>Claudia y Alexis</h1>
-                    <h2>12.27.2025</h2>
-                    <p>A&C</p>
-                </div>
-            </div>
-
-            <!--Nav bar = Menu/content bar-->
-            <nav
-                class="navbar-home">
-                <!--Portfolio title -->
-                <div class="navbar-logo"></div>
-                <!--Hamburger toggle button (only after passing max width)-->
-                <a href="#" class="toggle-button">
-                    <span class="toggle-bar"></span>
-                    <span class="toggle-bar"></span>
-                    <span class="toggle-bar"></span>
-                </a>
-                <!--Navbar menu-->
-                <div class="nav-links">
-                    <ul>
-                        <li><a href="#about-section">RSVP</a></li>
-                        <li><a href="#experience-sec">Preguntas</a></li>
-                    </ul>
-                </nav>
-            </div>
+          <!-- Navbar menu -->
+          <div class="nav-links" id="navLinks">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#program">Programa</a></li>
+              <li><a href="#rsvp">RSVP</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+        </nav>
+        <img
+          class="index-image-container-img"
+          src="../static/images/landing-img-smartphone.JPG"
+          alt="image"
+        />
+        <div class="overlay-text">
+          <h1>Claudia y Alexis</h1>
+          <h3>12.27.2025</h3>
         </div>
+      </div>
+    </div>
+    <div class="content-area" id="contentArea">
+      <div class="welcome">
         <div class="n-boda_title">
-            <center>
-                <h1>
-                    <b>Nuestra Boda</b>
-                </h1>
-            </center>
+          <center>
+            <h1>
+              <b>Nuestra Boda</b>
+            </h1>
+          </center>
         </div>
-        <div class="n-boda">
-            <div class="timeline">
-                <div class="timeline__component">
-                    <div class="timeline__date timeline__date--right"><img src="../static/images/1.png" height="200" width="200"></div>
-                    <p class="timeline__paragraph">
-                        <b>
-                            <u>Misa</u>
-                        </b>
-                    </p>
-                    <p class="timeline__paragraph">Concatedral Dulce Nombre De Jesus</p>
-                    <p class="timeline__paragraph">Humacao, Puerto Rico</p>
-                    <p class="timeline__paragraph">1:00 PM</p>
-
-                </div>
-                <div class="timeline__middle"></div>
-                <div class="timeline__component timeline__component--bg">
-                    <h2 class="timeline__title"></h2>
-                    <p class="timeline__paragraph"></p>
-                    <p class="timeline__paragraph"></p>
-                </div>
-                <div class="timeline__component timeline__component--bg">
-                    <h2 class="timeline__title"></h2>
-                    <p class="timeline__paragraph"></p>
-                    <p class="timeline__paragraph"></p>
-                </div>
-                <div class="timeline__middle"></div>
-                <div class="timeline__component">
-                    <p class="timeline__paragraph">
-                        <b>
-                            <u>Recepcion</u>
-                        </b>
-                    </p>
-                    <p class="timeline__paragraph">Four Points by Sheraton</p>
-                    <p class="timeline__paragraph">Caguas, Puerto Rico</p>
-                    <p class="timeline__paragraph">3:00 PM</p>
-                    <div class="timeline__date"><img src="../static/images/Garden dinner spot illustration.jpeg" height="200" width="200"></div>
-                </div>
+        <p>
+          Hola, <b>{{headOfParty}}</b>! Nos alegra mucho que estés aquí. Hemos
+          creado este espacio con mucho cariño para compartir contigo todos los
+          detalles de nuestra boda. Aquí encontrarás la información sobre la
+          ceremonia, la recepción, recomendaciones útiles y, por supuesto, un
+          espacio para confirmar tu asistencia. ¡Gracias por acompañarnos en
+          este momento tan especial!
+        </p>
+      </div>
+      <div class="n-boda_title" id="program">
+        <center>
+          <h1>
+            <b>Programa</b>
+          </h1>
+        </center>
+      </div>
+      <div class="n-boda">
+        <div class="timeline">
+          <div class="timeline__component">
+            <div class="timeline__date timeline__date--right">
+              <img
+                src="../static/images/wedding-church-img.png"
+                height="200"
+                width="150"
+              />
             </div>
-        </div>
-        <div class="rsvp">
-            <div class="rsvp_image_container"></div>
-            <div class="rsvp_card">
-                <h1>RSVP</h1>
-                <p>Estamos muy felices de extender esta invitación para nuestro día tan especial. Se ha identificado a los siguientes miembros como parte de esta invitación:</p>
-                {% for guest in partyList %}
-                    <p>{{ guest }}
-                    </p>
-                {% endfor %}
-                <p>Dejenos saber si puede acompañarnos en nuestro dia especial confirmando su asistencia.</p>
-                <p>Además, dejenos saber si tiene alguna alergia o requisito dietético.</p>
-
-                <p>Por favor confirmar antes del 5 de junio de 2025.</p>
-
-                <a href="">
-                    <button type="button" class="cm-button">Confirmar</button>
-                </a>
-            </div>
-        </div>
-        <div class="preg-frequentes">
-            <div class="preg-frequentes_container">
-                <div class="preg-frequentes_title">
-                    <center>
-                        <h1>
-                            <b>Preguntas Frequentes</b>
-                        </h1>
-                    </center>
-                </div>
-                <div class="preg-frequentes_desc">
-                    <h2>
-                        <u>¿Puedo traer invitado?</u>
-                    </h2>
-                    <p>Estamos muy emocionados de celebrar este día tan especial rodeados de
-                                                            nuestros familiares y amigos más cercanos. Como lo mantendremos en un
-                                                            ambiente íntimo, solo podrán asistir aquellos invitados formalmente en su
-                                                            invitación de boda. Si tienen un acompañante, lo indicaremos en su
-                                                            invitación y al confirmar su asistencia.</p>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <p id="countdown">
-                <b></b>
+            <p class="timeline__paragraph">
+              <b>
+                <u>Misa</u>
+              </b>
             </p>
-        </footer>
-    </body>
+            <p class="timeline__paragraph">Concatedral Dulce</p>
+            <p class="timeline__paragraph">Nombre De Jesús</p>
+            <p class="timeline__paragraph">Humacao, Puerto Rico</p>
+            <p class="timeline__paragraph">1:00 PM</p>
+            <button class="timeline_button">
+              <a
+                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Claudia+y+Alexis-Misa&dates=20251227T170000Z/20251227T180000Z&details=&location=https://www.google.com/maps/dir//552F%2B3G7,+Humacao,+00791,+Puerto+Rico/@18.1501345,-65.9086015,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8c04a7d955248975:0xa98d280501422acc!2m2!1d-65.8261998!2d18.150152?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+              >
+                Add to calendar
+              </a>
+            </button>
+          </div>
+          <div class="timeline__middle">
+            <div class="timeline__point"></div>
+          </div>
+          <div class="timeline__component timeline__component--bg">
+            <h2 class="timeline__title"></h2>
+            <p class="timeline__paragraph"></p>
+            <p class="timeline__paragraph"></p>
+          </div>
+          <div class="timeline__component timeline__component--bg">
+            <h2 class="timeline__title"></h2>
+            <p class="timeline__paragraph"></p>
+            <p class="timeline__paragraph"></p>
+          </div>
+          <div class="timeline__middle">
+            <div class="timeline__point"></div>
+          </div>
+          <div class="timeline__component">
+            <p class="timeline__paragraph">
+              <b>
+                <u>Recepcion</u>
+              </b>
+            </p>
+            <p class="timeline__paragraph">Four Points by Sheraton</p>
+            <p class="timeline__paragraph">Caguas, Puerto Rico</p>
+            <p class="timeline__paragraph">3:00 PM</p>
+            <div class="timeline__date">
+              <img
+                src="../static/images/party-img.png"
+                height="200"
+                width="200"
+              />
+            </div>
+            <button class="timeline_button">
+              <a
+                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Claudia+y+Alexis-Misa&dates=20251227T190000Z/20251227T230000Z&details=&location=https://www.google.com/maps/dir//Four+Points+by+Sheraton+Caguas+Real+Hotel+%26+Casino,+500+Alhambra+En+Granada+Blvd,+Caguas,+00725,+Puerto+Rico/@18.193503,-66.0526639,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x8c0345497b611f79:0xa8788f617b8f1fb5!2m2!1d-66.0526639!2d18.193503!3e0?authuser=0&hl=es-419&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+              >
+                Add to calendar
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="n-boda_title" id="rsvp">
+        <center>
+          <h1>
+            <b>RSVP</b>
+          </h1>
+        </center>
+      </div>
+      <div class="rsvp">
+        <div class="rsvp_card">
+          <p>
+            Estamos muy felices de extender esta invitación para nuestro día tan
+            especial. Se ha identificado a los siguientes miembros como parte de
+            esta invitación:
+          </p>
+          {% for guest in partyList %}
+          <p><b>{{ guest }}</b></p>
+          {% endfor %}
+          <p>
+            Dejenos saber si puede acompañarnos en nuestro dia especial
+            confirmando su asistencia.
+          </p>
+          <p>
+            Además, dejenos saber si tiene alguna alergia o requisito dietético.
+          </p>
+
+          <p>Por favor confirmar antes del 5 de junio de 2025.</p>
+
+          <a href="confirm_form?{{partyList}}">
+            <button type="button" class="confirm_button">
+              <b>Confirmar</b>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="n-boda_title" id="faq">
+        <center>
+          <h1>
+            <b>FAQ</b>
+          </h1>
+        </center>
+      </div>
+      <div class="preg-frequentes">
+        <div class="preg-frequentes_container">
+          <div class="preg-frequentes_desc">
+            <h2 id="preg">
+              <u>¿Puedo traer invitado?</u>
+            </h2>
+            <p>
+              Estamos muy emocionados de celebrar este día tan especial rodeados
+              de nuestros familiares y amigos más cercanos. Como lo mantendremos
+              en un ambiente íntimo, solo podrán asistir aquellos invitados
+              formalmente en su invitación de boda. Si tienen un acompañante, lo
+              indicaremos en su invitación y al confirmar su asistencia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="countdown_container">
+      <div class="days_container">
+        <div id="days"></div>
+        <p>DÍAS</p>
+      </div>
+      <div class="hours_container">
+        <div id="hours"></div>
+        <p>HORAS</p>
+      </div>
+      <div class="minutes_container">
+        <div id="minutes"></div>
+        <p>MINUTOS</p>
+      </div>
+      <div class="seconds_container">
+        <div id="seconds"></div>
+        <p>SEGUNDOS</p>
+      </div>
+    </div>
+  </body>
 </html>
