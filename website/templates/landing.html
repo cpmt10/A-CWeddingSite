@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="/x-icon" href="../static/images/AyCFavicon.png">
-        <link rel="stylesheet" href="../static/css/landing_style.css">
-        <title>Claudia y Alexis</title>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="/x-icon" href="../static/images/AyCFavicon.png">
+  <link rel="stylesheet" href="../static/css/landing_style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+  <title>Claudia y Alexis</title>
+</head>
 
-    <body class="index-body">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <script>
-            alert("{{ messages[0] }}");
-          </script>
-        {% endif %}
-      {% endwith %}
-        <form class="landing-container" method="POST">
-            <div class="landing-form">
-                <img src="../static/images/landing-logo.png" alt="landing logo">
-                <input type="password" id="pass" name="password" minlength="8" required/>
-                <p>Provea el codigo único entregado.</p>
-            </div>
-        </form>
-    </body>
+<body class="index-body">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <script>
+    errorPopup("{{ messages[0] }}");
+  </script>
+  {% endif %}
+  {% endwith %}
+  <form class="landing-container" method="POST">
+    <div class="landing-form">
+      <img src="../static/images/landing-logo.png" alt="landing logo">
+      <input type="password" id="pass" name="password" minlength="8" required />
+      <p>Provea el codigo único entregado.</p>
+    </div>
+  </form>
+</body>
+
 </html>

@@ -15,16 +15,17 @@ views = Blueprint("views", __name__)
 
 @views.route("/", methods=["GET", "POST"])
 def landing_validation():
-    #Checks if the request is a POST
+
+    # Checks if the request is a POST
     if request.method == "POST":
 
-        #Gets the password
+        # Gets the password
         password = request.form.get("password")
 
-        #Submits the password for validation
+        # Submits the password for validation
         result = get_head_party_with_guests_by_passcode(password)
 
-        #If results come back with a valid value then proceed
+        # If results come back with a valid value then proceed
         if result:
             # If data was found then store it in the session for use in the next page
             session["party_data"] = {
@@ -32,18 +33,20 @@ def landing_validation():
                 "guests": [guest.id_pk for guest in result["guests"]],
             }
             # Redirects to the get_party page
-            return redirect(url_for("views.get_party"))  
+            return redirect(url_for("views.get_party"))
         else:
+            #Clears the session if an incorrect password was entered so the pop up doesnt keep appearing on refresh
+            session.clear()
             # If the code was incorrect then show a pop up and refresh back to landing page
-            flash("Codigo invalido. Intenta de nuevo.")
-            return render_template("landing.html")
+            flash("Código inválido. Intenta de nuevo.")
+            return redirect(url_for("views.landing_validation"))
 
     return render_template("landing.html")
 
 
 @views.route("/get_party")
 def get_party():
-    # Loads the party information from the session 
+    # Loads the party information from the session
     party_data = session.get("party_data")
 
     if not party_data:
@@ -63,9 +66,12 @@ def get_party():
     ## stores the head of party name and their guests inside of party_list to see if they load on the website
     party_list = [format_name(head_party)] + [format_name(guest) for guest in guests]
 
-    return render_template("index.html", partyList=party_list, headOfParty=head_party.first_name)
+    return render_template(
+        "index.html", partyList=party_list, headOfParty=head_party.first_name
+    )
+
 
 @views.route("/confirm_form")
 def confirm_form():
-    party_list = request.args.get('party_list')
+    party_list = request.args.get("party_list")
     return render_template("confirmation_form.html", partyList=party_list)

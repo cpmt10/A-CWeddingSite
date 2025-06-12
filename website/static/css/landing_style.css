@@ -73,3 +73,8 @@ body {
 .landing-container p {
   font-size: 0.9rem;
 }
+
+.swal2-shown {
+    overflow: unset !important;
+    padding-right: 0px !important;
+}
