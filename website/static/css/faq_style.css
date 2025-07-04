@@ -1,0 +1,260 @@
+/**
+* CSS File for index.html 
+**/
+
+/** Default font. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+
+@font-face {
+  font-family: theSeasons;
+  src: url(../fonts/the-seasons-regular.ttf);
+}
+
+@font-face {
+  font-family: glaciarIndifference;
+  src: url(../fonts/glacial-indifference.regular.otf);
+}
+
+/** Base CSS for the whole file. This may be overriden per class, id, etc. **/
+html,
+body {
+  width: 100%;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: glaciarIndifference;
+}
+
+body {
+  scroll-behavior: smooth;
+  background-color: #f8f8ee;
+}
+
+::selection {
+  background: rgb(255, 255, 255);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #6a6926;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+}
+
+footer p {
+  margin: 10px;
+}
+
+/** CSS for nav-bar. **/
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.navbar-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(92, 92, 92, 0);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar-logo {
+  /** maybe delete **/
+  padding-left: 50px;
+  padding-right: 50px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+.nav-links li a {
+  padding-left: 50px;
+  padding-right: 50px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-links a:hover {
+  color: #6a6926;
+  font-weight: bold;
+  transition: all ease 0.1s;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .toggle-bar {
+  height: 3px;
+  width: 100%;
+  background-color: #6a6926;
+  border-radius: 20px;
+}
+
+/** CSS for index introduction section (home) **/
+
+.index-introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-family: theSeasons;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.index-introduction .index-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.index-introduction .overlay-text {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/**
+* Responsive CSS for both smartphone devices and special cases.
+**/
+
+/** Responsive CSS for smartphones **/
+@media screen and (max-device-width: 950px) {
+  /** Responsive CSS for the index section (home). **/
+  .index-introduction .index-image-container {
+    background-size: cover;
+    height: 650px;
+    opacity: 75%;
+  }
+
+  .index-introduction .index-image-container img {
+    opacity: 0%;
+  }
+
+  /** Responsive nav-bar. Might change later on. **/
+  .content-area {
+    transition: margin-left 0.3s ease;
+    margin-right: 0;
+    overflow-x: hidden;
+  }
+
+  /* When nav active, push content */
+  .content-area.shifted {
+    margin-right: 250px;
+    z-index: 100;
+  }
+
+  .toggle-button {
+    display: flex;
+    position: fixed;
+    z-index: 11000;
+  }
+
+  /* Update nav-links to slide in from left on mobile */
+  .nav-links {
+    position: fixed; /* fix to viewport */
+    right: -250px; /* hide off screen */
+    top: 0;
+    width: 250px; /* make sure this matches margin-left above */
+    height: 100%;
+    flex-direction: column;
+    padding-top: 3rem;
+    transition: right 0.3s ease;
+    z-index: 10000;
+    opacity: 100%;
+  }
+
+  .nav-links.active {
+    right: 0; /* slide in */
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links ul li {
+    width: 100%;
+    text-align: right;
+    margin: 0;
+  }
+
+  .nav-links ul li a {
+    padding: 1rem;
+    display: block;
+    width: 100%;
+  }
+
+  /** Responsive CSS for the index section (home). **/
+
+  .index-introduction {
+    max-width: 100%;
+  }
+
+  .index-introduction .overlay-text h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/** Special cases: responsive elements only for computers. **/
+@media only screen and (min-device-width: 990px) {
+  /** Responsive CSS for the index section (home). **/
+  .index-introduction .index-image-container {
+    height: 800px; /** Manually make div an approximate computer size*/
+    background-position: center center; /** Start repeating from the middle*/
+    background-size: contain;
+    background-repeat: repeat-x;
+    transition: all 0.3s ease;
+  }
+
+  .index-introduction .index-image-container img {
+    opacity: 0%;
+    height: 800px; /** Manually make div an approximate computer size*/
+  }
+
+  .index-introduction .index-image-container a {
+    color: white;
+    font-weight: bolder;
+    opacity: 100%;
+  }
+
+  .index-introduction .index-image-container a:hover {
+    color: #f8f8ee;
+    text-decoration: underline;
+    transition: all 0.5s ease;
+  }
+}

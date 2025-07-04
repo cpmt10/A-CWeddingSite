@@ -2,8 +2,8 @@
 * CSS File for index.html 
 **/
 
-/** Default font. */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+/** Default fonts. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital@1&display=swap");
 
 @font-face {
   font-family: theSeasons;
@@ -13,6 +13,11 @@
 @font-face {
   font-family: glaciarIndifference;
   src: url(../fonts/glacial-indifference.regular.otf);
+}
+
+@font-face {
+  font-family: Amoresa;
+  src: url(../fonts/Amoresa.ttf);
 }
 
 /** Base CSS for the whole file. This may be overriden per class, id, etc. **/
@@ -29,24 +34,52 @@ body {
 body {
   scroll-behavior: smooth;
   background-color: #f8f8ee;
+  color: #6a6926;
 }
 
 ::selection {
   background: rgb(255, 255, 255);
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.global-title {
+  margin: 45px;
+  margin-bottom: 30px;
+  font-family: Amoresa;
   color: #6a6926;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
 }
 
-footer p {
-  margin: 10px;
+.divider {
+  width: 80%;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #6a6926ca;
+}
+
+.index-button {
+  border-radius: 25px;
+  border-width: 0;
+  background-color: #6a6926;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 50px;
+  color: #f8f8ee;
+}
+
+.index-button:hover {
+  background-color: #6a692659;
+  color: #ffffffd1;
 }
 
 /** CSS for nav-bar. **/
@@ -74,14 +107,7 @@ a {
   background-color: rgba(92, 92, 92, 0);
   padding-top: 20px;
   padding-bottom: 20px;
-}
-
-.navbar-logo {
-  /** maybe delete **/
-  padding-left: 50px;
-  padding-right: 50px;
-  font-weight: bold;
-  text-decoration: none;
+  font-family: theSeasons;
 }
 
 .nav-links ul {
@@ -128,20 +154,18 @@ a {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-family: theSeasons;
-  text-decoration: none;
-  color: #ffffff;
+  font-family: Amoresa;
+  color: #f8f8ee;
 }
 
-.index-introduction .index-image-container {
+.index-image-container {
   position: relative;
   display: inline-block;
 }
 
-.index-introduction .index-image-container img {
+.index-image-container img {
   display: block;
   width: 100%;
-  opacity: 50%;
   height: auto;
 }
 
@@ -153,29 +177,52 @@ a {
   transform: translate(-50%, -50%);
   padding: 10px 20px;
   text-align: center;
+  font-family: Amoresa;
 }
 
 .index-introduction h1 {
   width: 100%;
   font-size: 100px;
-  font-weight: 200;
+  font-weight: normal;
 }
 
-/** CSS for Welcome message **/
-.n-boda_title {
-  margin: 20px 10px 10px 10px;
-  font-family: theSeasons;
-}
-
-.n-boda_title h1 {
-  margin: 0;
-  color: #6a6926;
-}
-
+/** CSS for Welcome container **/
 .welcome {
-  padding: 15px 15px 0px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 20px 0px 20px;
   text-align: center;
   color: #6a6926;
+}
+
+.welcome img {
+  display: block;
+  margin: auto;
+  height: 500px;
+  width: 400px;
+  border-radius: 10%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.welcome audio {
+  display: block;
+  margin: auto;
+}
+
+#playPauseBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #6a6926;
+  color: #f8f8ee;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-width: 0;
+  text-align: center;
+  justify-content: center;
 }
 
 /** CSS for RSVP section. **/
@@ -185,43 +232,11 @@ a {
   justify-content: center;
   text-align: center;
   align-items: center;
-  color: #6a6926;
-}
-
-.rsvp .rsvp_title {
-  font-family: theSeasons;
 }
 
 .rsvp .rsvp_card {
   height: 80%;
   width: 80%;
-}
-
-.rsvp .confirm_button {
-  background-color: rgba(51, 51, 51, 0.05);
-  border-radius: 25px;
-  border-width: 0;
-  color: #6a6926;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  list-style: none;
-  margin: 0;
-  padding: 10px 12px;
-  text-align: center;
-  transition: all 200ms;
-  vertical-align: baseline;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.rsvp .confirm_button:hover {
-  background-color: #6a692659;
-  color: #ffffff;
 }
 
 /** CSS for timeline section. **/
@@ -257,12 +272,13 @@ a {
 .timeline__paragraph {
   line-height: 1;
   text-align: center;
+  font-size: 1rem;
 }
 
 .timeline__paragraph b {
-  font-family: theSeasons;
-  font-size: 25px;
-  font-weight: bolder;
+  font-family: Amoresa;
+  font-size: 1.2rem;
+  text-decoration: underline;
 }
 
 .timeline_button {
@@ -286,34 +302,91 @@ a {
   touch-action: manipulation;
 }
 
-.timeline_button a {
+.timeline__point {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background: #6a6926;
+  border-radius: 50%;
+}
+
+.divider-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.divider-block img {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 30%;
+}
+
+.divider-block .index-button a {
   color: #f8f8ee;
 }
 
-/** CSS for faq section. **/
+.divider-block .index-button {
+  display: block;
+  margin: auto;
+}
 
-.preg-frequentes {
+/** CSS for calendar **/
+
+.calendar {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.day {
   text-align: center;
-  color: #6a6926;
+  color: #6c6a1e;
+  font-size: 1.2em;
 }
 
-.preg-frequentes #preg {
-  font-family: theSeasons;
+.label {
+  font-weight: 400;
 }
 
-.preg-frequentes_container {
-  width: 50%;
+.number {
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+#special {
+  color: #db2525;
+  font-weight: bolder;
 }
 
 /** CSS for countdown section **/
+.countdown {
+  background-image: url("../images/countdown.png");
+  background-position: center;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 65px;
+}
+
+.countdown h1 {
+  font-size: 100px;
+}
+
 .countdown_container {
-  font-family: theSeasons;
   display: flex;
   justify-content: center;
-  gap: 1rem;
 }
 
 .countdown_container div {
@@ -322,11 +395,20 @@ a {
   align-items: center;
 }
 
-.countdown_container .days,
-.hours,
-.minutes,
-.seconds {
-  font-size: 80px;
+.days_container,
+.hours_container,
+.minutes_container,
+.seconds_container {
+  background-color: #6a6926;
+  color: #f8f8ee;
+  border-radius: 10%;
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-family: Amsterdam;
 }
 
 /**
@@ -337,14 +419,20 @@ a {
 @media screen and (max-device-width: 950px) {
   /** Responsive CSS for the index section (home). **/
   .index-introduction .index-image-container {
-    background-image: url("../images/landing-img-smartphone.JPG");
+    background-image: url("../images/index-home-img.JPG");
+    background-position: center;
     background-size: cover;
-    height: 650px;
-    opacity: 75%;
+    height: 100vh;
+    overflow: auto;
   }
 
   .index-introduction .index-image-container img {
     opacity: 0%;
+  }
+
+  .welcome img {
+    height: 260px;
+    width: 210px;
   }
 
   /** Responsive nav-bar. Might change later on. **/
@@ -440,24 +528,8 @@ a {
   }
 
   .timeline_button {
-    width: 80%;
+    width: 40%;
     font-size: 0.8rem;
-  }
-
-  timeline__middle {
-    position: relative;
-    background: #dbc5ac;
-  }
-
-  .timeline__point {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 15px;
-    height: 15px;
-    background: #6a6926;
-    border-radius: 50%;
   }
 
   /* LEAVE TILL LAST */
@@ -466,9 +538,27 @@ a {
     bottom: 0;
   }
 
-  /** Responsive CSS for FAQ section. **/
-  .preg-frequentes_container {
+  /** Resnponsive divider block */
+  .divider-block img {
     width: 80%;
+  }
+
+  /** Resnponsive countdown */
+
+  .countdown {
+    font-size: 45px;
+  }
+
+  .countdown h1 {
+    font-size: 80px;
+  }
+
+  .days_container,
+  .hours_container,
+  .minutes_container,
+  .seconds_container {
+    height: 80px;
+    width: 80px;
   }
 }
 
@@ -476,8 +566,7 @@ a {
 @media only screen and (min-device-width: 990px) {
   /** Responsive CSS for the index section (home). **/
   .index-introduction .index-image-container {
-    background-image: url("../images/landing-img-smartphone.JPG");
-    opacity: 75%;
+    background-image: url("../images/index-home-img.JPG");
     height: 800px; /** Manually make div an approximate computer size*/
     background-position: center center; /** Start repeating from the middle*/
     background-size: contain;

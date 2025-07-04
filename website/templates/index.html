@@ -33,73 +33,96 @@
               <li><a href="#home">Home</a></li>
               <li><a href="#program">Programa</a></li>
               <li><a href="#rsvp">RSVP</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="render_faq?{{partyList}}">FAQ</a></li>
             </ul>
           </div>
         </nav>
         <img
           class="index-image-container-img"
-          src="../static/images/landing-img-smartphone.JPG"
+          src="../static/images/index-home-img.JPG"
           alt="image"
         />
         <div class="overlay-text">
-          <h1>Claudia y Alexis</h1>
-          <h3>12.27.2025</h3>
+          <h1>Claudia & Alexis</h1>
         </div>
       </div>
     </div>
     <div class="content-area" id="contentArea">
       <div class="welcome">
-        <div class="n-boda_title">
+        <div class="global-title">
           <center>
-            <h1>
-              <b>Nuestra Boda</b>
-            </h1>
+            <h1>¡Hola, {{headOfParty}}!</h1>
           </center>
         </div>
         <p>
-          Hola, <b>{{headOfParty}}</b>! Nos alegra mucho que estés aquí. Hemos
-          creado este espacio con mucho cariño para compartir contigo todos los
-          detalles de nuestra boda. Aquí encontrarás la información sobre la
-          ceremonia, la recepción, recomendaciones útiles y, por supuesto, un
-          espacio para confirmar tu asistencia. ¡Gracias por acompañarnos en
-          este momento tan especial!
+          Nos alegra mucho que estés aquí. Hemos creado este espacio con mucho
+          cariño para compartir contigo todos los detalles de nuestra boda.
         </p>
+        <p>
+          Aquí encontrarás la información sobre la ceremonia, la recepción,
+          recomendaciones útiles y, por supuesto, un espacio para confirmar tu
+          asistencia.
+        </p>
+        <p>¡Gracias por acompañarnos en este momento tan especial!</p>
+        <img src="../static/images/photobooth.gif" />
+        <div class="music-player">
+          <audio
+            id="audio"
+            src="../static/audio/The Ronettes - Be My Baby.mp3"
+          ></audio>
+          <button id="playPauseBtn">▶</button>
+        </div>
       </div>
-      <div class="n-boda_title" id="program">
+      <div class="global-title" id="program">
         <center>
-          <h1>
-            <b>Programa</b>
-          </h1>
+          <h1>Programa</h1>
         </center>
+      </div>
+      <div class="calendar">
+        <div class="day">
+          <div class="label">Lun</div>
+          <div class="number">22</div>
+        </div>
+        <div class="day">
+          <div class="label">Mar</div>
+          <div class="number">23</div>
+        </div>
+        <div class="day">
+          <div class="label">Mie</div>
+          <div class="number">24</div>
+        </div>
+        <div class="day">
+          <div class="label">Jue</div>
+          <div class="number">25</div>
+        </div>
+        <div class="day">
+          <div class="label">Vie</div>
+          <div class="number">26</div>
+        </div>
+        <div class="day">
+          <div class="label">Sab</div>
+          <div class="number" id="special">&#9825;</div>
+        </div>
+        <div class="day">
+          <div class="label">Dom</div>
+          <div class="number">28</div>
+        </div>
       </div>
       <div class="n-boda">
         <div class="timeline">
           <div class="timeline__component">
             <div class="timeline__date timeline__date--right">
-              <img
-                src="../static/images/wedding-church-img.png"
-                height="200"
-                width="150"
-              />
+              <img src="../static/images/arch.png" height="200" width="150" />
             </div>
             <p class="timeline__paragraph">
               <b>
-                <u>Misa</u>
+                <i>Misa</i>
               </b>
             </p>
             <p class="timeline__paragraph">Concatedral Dulce</p>
             <p class="timeline__paragraph">Nombre De Jesús</p>
             <p class="timeline__paragraph">Humacao, Puerto Rico</p>
             <p class="timeline__paragraph">1:00 PM</p>
-            <button class="timeline_button">
-              <a
-                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Claudia+y+Alexis-Misa&dates=20251227T170000Z/20251227T180000Z&details=&location=https://www.google.com/maps/dir//552F%2B3G7,+Humacao,+00791,+Puerto+Rico/@18.1501345,-65.9086015,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8c04a7d955248975:0xa98d280501422acc!2m2!1d-65.8261998!2d18.150152?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-              >
-                Add to calendar
-              </a>
-            </button>
           </div>
           <div class="timeline__middle">
             <div class="timeline__point"></div>
@@ -120,38 +143,35 @@
           <div class="timeline__component">
             <p class="timeline__paragraph">
               <b>
-                <u>Recepcion</u>
+                <i>Recepción</i>
               </b>
             </p>
             <p class="timeline__paragraph">Four Points by Sheraton</p>
             <p class="timeline__paragraph">Caguas, Puerto Rico</p>
             <p class="timeline__paragraph">3:00 PM</p>
             <div class="timeline__date">
-              <img
-                src="../static/images/party-img.png"
-                height="200"
-                width="200"
-              />
+              <img src="../static/images/couple.png" height="200" width="150" />
             </div>
-            <button class="timeline_button">
-              <a
-                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Claudia+y+Alexis-Misa&dates=20251227T190000Z/20251227T230000Z&details=&location=https://www.google.com/maps/dir//Four+Points+by+Sheraton+Caguas+Real+Hotel+%26+Casino,+500+Alhambra+En+Granada+Blvd,+Caguas,+00725,+Puerto+Rico/@18.193503,-66.0526639,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x8c0345497b611f79:0xa8788f617b8f1fb5!2m2!1d-66.0526639!2d18.193503!3e0?authuser=0&hl=es-419&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-              >
-                Add to calendar
-              </a>
-            </button>
           </div>
         </div>
       </div>
-      <div class="n-boda_title" id="rsvp">
-        <center>
-          <h1>
-            <b>RSVP</b>
-          </h1>
-        </center>
+      <div class="divider-block">
+        <button class="index-button">
+          <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Claudia+y+Alexis-Misa&dates=20251227T170000Z/20251227T180000Z&details=&location=https://www.google.com/maps/dir//552F%2B3G7,+Humacao,+00791,+Puerto+Rico/@18.1501345,-65.9086015,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8c04a7d955248975:0xa98d280501422acc!2m2!1d-65.8261998!2d18.150152?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+          >
+            Añadir a calendario
+          </a>
+        </button>
+        <img class="divider" src="../static/images/divider.PNG" alt="" />
       </div>
       <div class="rsvp">
+        <div class="global-title" id="rsvp">
+          <center>
+            <h1>Rsvp</h1>
+          </center>
+        </div>
         <div class="rsvp_card">
           <p>
             Estamos muy felices de extender esta invitación para nuestro día tan
@@ -159,7 +179,9 @@
             esta invitación:
           </p>
           {% for guest in partyList %}
-          <p><b>{{ guest }}</b></p>
+          <p class="guest_names">
+            <b>{{ guest }}</b>
+          </p>
           {% endfor %}
           <p>
             Dejenos saber si puede acompañarnos en nuestro dia especial
@@ -169,55 +191,35 @@
             Además, dejenos saber si tiene alguna alergia o requisito dietético.
           </p>
 
-          <p>Por favor confirmar antes del 5 de junio de 2025.</p>
+          <p>Por favor confirmar antes del 5 de agosto de 2025.</p>
 
           <a href="confirm_form?{{partyList}}">
-            <button type="button" class="confirm_button">
+            <button type="button" class="index-button">
               <b>Confirmar</b>
             </button>
           </a>
         </div>
       </div>
-      <div class="n-boda_title" id="faq">
+    </div>
+    <div class="countdown">
+      <div class="global-title">
         <center>
-          <h1>
-            <b>FAQ</b>
-          </h1>
+          <h1>Solo Faltan...</h1>
         </center>
       </div>
-      <div class="preg-frequentes">
-        <div class="preg-frequentes_container">
-          <div class="preg-frequentes_desc">
-            <h2 id="preg">
-              <u>¿Puedo traer invitado?</u>
-            </h2>
-            <p>
-              Estamos muy emocionados de celebrar este día tan especial rodeados
-              de nuestros familiares y amigos más cercanos. Como lo mantendremos
-              en un ambiente íntimo, solo podrán asistir aquellos invitados
-              formalmente en su invitación de boda. Si tienen un acompañante, lo
-              indicaremos en su invitación y al confirmar su asistencia.
-            </p>
-          </div>
+      <div class="countdown_container">
+        <div class="days_container">
+          <div id="days"></div>
         </div>
-      </div>
-    </div>
-    <div class="countdown_container">
-      <div class="days_container">
-        <div id="days"></div>
-        <p>DÍAS</p>
-      </div>
-      <div class="hours_container">
-        <div id="hours"></div>
-        <p>HORAS</p>
-      </div>
-      <div class="minutes_container">
-        <div id="minutes"></div>
-        <p>MINUTOS</p>
-      </div>
-      <div class="seconds_container">
-        <div id="seconds"></div>
-        <p>SEGUNDOS</p>
+        <div class="hours_container">
+          <div id="hours"></div>
+        </div>
+        <div class="minutes_container">
+          <div id="minutes"></div>
+        </div>
+        <div class="seconds_container">
+          <div id="seconds"></div>
+        </div>
       </div>
     </div>
   </body>

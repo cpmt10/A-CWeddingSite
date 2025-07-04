@@ -75,3 +75,8 @@ def get_party():
 def confirm_form():
     party_list = request.args.get("party_list")
     return render_template("confirmation_form.html", partyList=party_list)
+
+@views.route("/render_faq")
+def render_faq():
+    party_list = request.args.get("party_list")
+    return render_template("faq.html", partyList=party_list)
