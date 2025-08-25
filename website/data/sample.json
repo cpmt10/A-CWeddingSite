@@ -181,7 +181,7 @@
       "initial": null,
       "paternal_last_name": "Zayas",
       "maternal_last_name": null,
-      "is_confirmed": false,
+      "is_confirmed": true,
       "passcode": {
         "id_pk": "NnsPUJePqq"
       },
@@ -201,7 +201,7 @@
       "initial": "G",
       "paternal_last_name": "Mojica",
       "maternal_last_name": null,
-      "is_confirmed": false,
+      "is_confirmed": true,
       "passcode": {
         "id_pk": "1bQQ7zEIEZ"
       },
@@ -230,7 +230,7 @@
           "id_pk": 7,
           "first_name": "Gladys",
           "initial": null,
-          "paternal_last_name": "Diaz",
+          "paternal_last_name": "Díaz",
           "maternal_last_name": null
         }
       ]
@@ -250,21 +250,21 @@
           "id_pk": 8,
           "first_name": "Abraham",
           "initial": null,
-          "paternal_last_name": "Rodriguez",
+          "paternal_last_name": "Rodríguez",
           "maternal_last_name": null
         },
         {
           "id_pk": 9,
           "first_name": "Ariana",
           "initial": null,
-          "paternal_last_name": "Rodriguez",
+          "paternal_last_name": "Rodríguez",
           "maternal_last_name": null
         },
         {
           "id_pk": 10,
           "first_name": "Adrian",
           "initial": null,
-          "paternal_last_name": "Rodriguez",
+          "paternal_last_name": "Rodríguez",
           "maternal_last_name": null
         }
       ]
@@ -302,7 +302,7 @@
       "guests": [
         {
           "id_pk": 12,
-          "first_name": "Jose",
+          "first_name": "José",
           "initial": null,
           "paternal_last_name": "",
           "maternal_last_name": null
@@ -327,7 +327,7 @@
       "id_pk": 19,
       "first_name": "Wilfredo",
       "initial": null,
-      "paternal_last_name": "Rodriguez",
+      "paternal_last_name": "Rodríguez",
       "maternal_last_name": null,
       "is_confirmed": false,
       "passcode": {
@@ -358,7 +358,7 @@
           "id_pk": 16,
           "first_name": "Invitado(a)",
           "initial": null,
-          "paternal_last_name": "adicional",
+          "paternal_last_name": "Adicional",
           "maternal_last_name": null
         }
       ]
@@ -394,7 +394,7 @@
       "id_pk": 22,
       "first_name": "Emilia",
       "initial": null,
-      "paternal_last_name": "Velazquez",
+      "paternal_last_name": "Velázquez",
       "maternal_last_name": null,
       "is_confirmed": false,
       "passcode": {
@@ -451,14 +451,14 @@
           "id_pk": 22,
           "first_name": "Evelyn",
           "initial": null,
-          "paternal_last_name": "Garcia",
+          "paternal_last_name": "García",
           "maternal_last_name": null
         },
         {
           "id_pk": 23,
           "first_name": "Ivana",
           "initial": null,
-          "paternal_last_name": "Garcia",
+          "paternal_last_name": "García",
           "maternal_last_name": null
         }
       ]
@@ -487,7 +487,7 @@
       "id_pk": 26,
       "first_name": "Gerardo",
       "initial": "",
-      "paternal_last_name": "Ortiz",
+      "paternal_last_name": "Ortíz",
       "maternal_last_name": null,
       "is_confirmed": false,
       "passcode": {
@@ -498,7 +498,7 @@
           "id_pk": 25,
           "first_name": "Natalie",
           "initial": null,
-          "paternal_last_name": "Rodriguez",
+          "paternal_last_name": "Rodríguez",
           "maternal_last_name": null
         }
       ]
@@ -518,16 +518,16 @@
           "id_pk": 26,
           "first_name": "Loriana",
           "initial": null,
-          "paternal_last_name": "Albarran",
+          "paternal_last_name": "Albarrán",
           "maternal_last_name": null
         }
       ]
     },
     {
       "id_pk": 28,
-      "first_name": "Jose",
+      "first_name": "José",
       "initial": "",
-      "paternal_last_name": "Ortiz",
+      "paternal_last_name": "Ortíz",
       "maternal_last_name": null,
       "is_confirmed": false,
       "passcode": {
@@ -558,7 +558,7 @@
           "id_pk": 28,
           "first_name": "Monique",
           "initial": null,
-          "paternal_last_name": "Roman",
+          "paternal_last_name": "Román",
           "maternal_last_name": null
         }
       ]
@@ -566,7 +566,7 @@
     {
       "id_pk": 30,
       "first_name": "David",
-      "initial": "",
+      "initial": "J",
       "paternal_last_name": "Peña",
       "maternal_last_name": null,
       "is_confirmed": false,
@@ -598,7 +598,7 @@
     {
       "id_pk": 32,
       "first_name": "Julian",
-      "initial": "",
+      "initial": "G",
       "paternal_last_name": "Rodriguez",
       "maternal_last_name": null,
       "is_confirmed": false,
@@ -610,7 +610,7 @@
           "id_pk": 30,
           "first_name": "Wilenice",
           "initial": null,
-          "paternal_last_name": "",
+          "paternal_last_name": "Rodriguez",
           "maternal_last_name": null
         }
       ]
@@ -618,7 +618,7 @@
     {
       "id_pk": 33,
       "first_name": "Roberto",
-      "initial": null,
+      "initial": "A",
       "paternal_last_name": "Andino",
       "maternal_last_name": null,
       "is_confirmed": false,
@@ -642,7 +642,7 @@
           "id_pk": 31,
           "first_name": "Joel",
           "initial": null,
-          "paternal_last_name": "De Jesus",
+          "paternal_last_name": "De Jesús",
           "maternal_last_name": null
         },
         {
@@ -664,9 +664,9 @@
     {
       "id_pk": 35,
       "first_name": "Emanuel",
-      "initial": "",
+      "initial": "J.",
       "paternal_last_name": "Monge",
-      "maternal_last_name": null,
+      "maternal_last_name": "Torres",
       "is_confirmed": false,
       "passcode": {
         "id_pk": "SbiIgqpVXi"
@@ -675,9 +675,29 @@
         {
           "id_pk": 34,
           "first_name": "Damari",
-          "initial": null,
+          "initial": "R",
           "paternal_last_name": "Abreu",
           "maternal_last_name": null
+        }
+      ]
+    },
+    {
+      "id_pk": 36,
+      "first_name": "Claudia",
+      "initial": "P",
+      "paternal_last_name": "Monge",
+      "maternal_last_name": "Torres",
+      "is_confirmed": true,
+      "passcode": {
+        "id_pk": "SbiIgqpVXi"
+      },
+      "guests": [
+        {
+          "id_pk": 35,
+          "first_name": "Alexis",
+          "initial": "D",
+          "paternal_last_name": "Mojica",
+          "maternal_last_name": "Zayas"
         }
       ]
     }
