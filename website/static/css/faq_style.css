@@ -1,6 +1,15 @@
 /**
-* CSS File for index.html 
+* CSS File for faq.html 
 **/
+
+:root {
+  --card: #6a6926;
+  --radius: 18px;
+  --notch: 48px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --pad-inline: 28px;
+  --pad-block: 28px;
+}
 
 /** Default font. */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
@@ -22,7 +31,6 @@ body {
   min-width: 100vw;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   font-family: glaciarIndifference;
 }
 
@@ -121,31 +129,61 @@ a {
   border-radius: 20px;
 }
 
-/** CSS for index introduction section (home) **/
-
-.index-introduction {
-  display: flex;
-  flex-direction: column;
+/** CSS for title **/
+.faq-title {
+  width: 100%;
   justify-content: center;
-  text-align: center;
   font-family: theSeasons;
-  text-decoration: none;
-  color: #ffffff;
 }
 
-.index-introduction .index-image-container {
+/** CSS for cards **/
+
+.wrap {
+  max-width: min(900px, 92vw);
+  margin: 48px auto 72px;
+  display: grid;
+  gap: 42px;
+}
+
+/* Card */
+.card {
   position: relative;
-  display: inline-block;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: calc(var(--pad-block) + var(--notch) / 2) var(--pad-inline)
+    var(--pad-block);
+  border-style: none;
+  overflow: hidden;
+  min-height: 190px;
 }
 
-.index-introduction .overlay-text {
-  width: 80%;
+/* The round notch “cut-out” */
+.card::before {
+  content: "";
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 0;
+  width: var(--notch);
+  height: var(--notch);
+  background: #f8f8ee;
+  border-color: #f8f8ee;
+  border-radius: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  text-align: center;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+/* Headings & text */
+.card h3 {
+  font-size: clamp(24px, 3.4vw, 34px);
+  margin: 0 0 10px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #f8f8ee;
+}
+.card p {
+  margin: 0;
+  color: #f8f8ee;
+  opacity: 0.95;
 }
 
 /**
@@ -154,30 +192,6 @@ a {
 
 /** Responsive CSS for smartphones **/
 @media screen and (max-device-width: 950px) {
-  /** Responsive CSS for the index section (home). **/
-  .index-introduction .index-image-container {
-    background-size: cover;
-    height: 650px;
-    opacity: 75%;
-  }
-
-  .index-introduction .index-image-container img {
-    opacity: 0%;
-  }
-
-  /** Responsive nav-bar. Might change later on. **/
-  .content-area {
-    transition: margin-left 0.3s ease;
-    margin-right: 0;
-    overflow-x: hidden;
-  }
-
-  /* When nav active, push content */
-  .content-area.shifted {
-    margin-right: 250px;
-    z-index: 100;
-  }
-
   .toggle-button {
     display: flex;
     position: fixed;
@@ -191,6 +205,7 @@ a {
     top: 0;
     width: 250px; /* make sure this matches margin-left above */
     height: 100%;
+    background-color: #f8f8eed3;
     flex-direction: column;
     padding-top: 3rem;
     transition: right 0.3s ease;
@@ -217,44 +232,5 @@ a {
     padding: 1rem;
     display: block;
     width: 100%;
-  }
-
-  /** Responsive CSS for the index section (home). **/
-
-  .index-introduction {
-    max-width: 100%;
-  }
-
-  .index-introduction .overlay-text h1 {
-    font-size: 2.5rem;
-  }
-}
-
-/** Special cases: responsive elements only for computers. **/
-@media only screen and (min-device-width: 990px) {
-  /** Responsive CSS for the index section (home). **/
-  .index-introduction .index-image-container {
-    height: 800px; /** Manually make div an approximate computer size*/
-    background-position: center center; /** Start repeating from the middle*/
-    background-size: contain;
-    background-repeat: repeat-x;
-    transition: all 0.3s ease;
-  }
-
-  .index-introduction .index-image-container img {
-    opacity: 0%;
-    height: 800px; /** Manually make div an approximate computer size*/
-  }
-
-  .index-introduction .index-image-container a {
-    color: white;
-    font-weight: bolder;
-    opacity: 100%;
-  }
-
-  .index-introduction .index-image-container a:hover {
-    color: #f8f8ee;
-    text-decoration: underline;
-    transition: all 0.5s ease;
   }
 }

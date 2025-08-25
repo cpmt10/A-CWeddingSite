@@ -44,10 +44,10 @@ let isPlaying = false;
 playPauseBtn.addEventListener("click", () => {
   if (isPlaying) {
     audio.pause();
-    playPauseBtn.textContent = "▶";
+    playPauseBtn.textContent = "\u25B6\uFE0E";
   } else {
     audio.play();
-    playPauseBtn.textContent = "■";
+    playPauseBtn.textContent = "\u23F8\uFE0E";
   }
   isPlaying = !isPlaying;
 });
