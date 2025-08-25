@@ -2,13 +2,13 @@
 * CSS File for faq.html 
 **/
 
-:root{
-  --card:#6a6926; 
-  --radius:18px;
-  --notch:48px;
-  --shadow:0 8px 24px rgba(0,0,0,.08);
-  --pad-inline:28px;
-  --pad-block:28px;
+:root {
+  --card: #6a6926;
+  --radius: 18px;
+  --notch: 48px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --pad-inline: 28px;
+  --pad-block: 28px;
 }
 
 /** Default font. */
@@ -129,55 +129,62 @@ a {
   border-radius: 20px;
 }
 
+/** CSS for title **/
+.faq-title {
+  width: 100%;
+  justify-content: center;
+  font-family: theSeasons;
+}
+
 /** CSS for cards **/
 
-    .wrap{
-      max-width:min(900px,92vw);
-      margin:48px auto 72px;
-      display:grid;
-      gap:42px;
-    }
+.wrap {
+  max-width: min(900px, 92vw);
+  margin: 48px auto 72px;
+  display: grid;
+  gap: 42px;
+}
 
-    /* Card */
-    .card{
-      position:relative;
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:calc(var(--pad-block) + var(--notch)/2) var(--pad-inline) var(--pad-block);
-      border-color: #f8f8ee;    
-      overflow:hidden; 
-      min-height:190px;
-    }
+/* Card */
+.card {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: calc(var(--pad-block) + var(--notch) / 2) var(--pad-inline)
+    var(--pad-block);
+  border-style: none;
+  overflow: hidden;
+  min-height: 190px;
+}
 
-    /* The round notch “cut-out” */
-    .card::before{
-      content:"";
-      position:absolute;
-      left:50%;
-      top:0;
-      width:var(--notch);
-      height:var(--notch);
-      background:#f8f8ee; 
-      border-color: #f8f8ee;    
-      border-radius:50%;
-      transform:translate(-50%,-50%); 
-      box-shadow:0 0 0 1px rgba(0,0,0,0.02); 
-    }
+/* The round notch “cut-out” */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--notch);
+  height: var(--notch);
+  background: #f8f8ee;
+  border-color: #f8f8ee;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02);
+}
 
-    /* Headings & text */
-    .card h3{
-      font-size:clamp(24px, 3.4vw, 34px);
-      margin:0 0 10px;
-      font-weight:600;
-      letter-spacing:.2px;
-      color: #f8f8ee;
-    }
-    .card p{
-      margin:0;
-      color: #f8f8ee;
-      opacity:.95;
-    }
+/* Headings & text */
+.card h3 {
+  font-size: clamp(24px, 3.4vw, 34px);
+  margin: 0 0 10px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #f8f8ee;
+}
+.card p {
+  margin: 0;
+  color: #f8f8ee;
+  opacity: 0.95;
+}
 
 /**
 * Responsive CSS for both smartphone devices and special cases.
@@ -198,7 +205,7 @@ a {
     top: 0;
     width: 250px; /* make sure this matches margin-left above */
     height: 100%;
-    background-color: #f8f8eea2;
+    background-color: #f8f8eed3;
     flex-direction: column;
     padding-top: 3rem;
     transition: right 0.3s ease;
@@ -226,5 +233,4 @@ a {
     display: block;
     width: 100%;
   }
-
 }

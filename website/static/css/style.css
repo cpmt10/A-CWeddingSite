@@ -107,7 +107,7 @@ a {
   background-color: rgba(92, 92, 92, 0);
   padding-top: 20px;
   padding-bottom: 20px;
-  font-family: theSeasons;
+  font-family: glaciarIndifference;
 }
 
 .nav-links ul {
@@ -460,7 +460,7 @@ a {
     top: 0;
     width: 185px;
     height: 100vh;
-    background-color: #f8f8ee;
+    background-color: #f8f8eed3;
     flex-direction: column;
     padding-top: 3rem;
     transition: right 0.3s ease;
