@@ -80,13 +80,10 @@ def confirm_form():
     guests = get_guests_by_ids(party_list["guests"])
 
     if request.method == "POST":
-        #When data is sent in post then gather it and send it to the database
         head_confirmed = bool(request.form.get("head_confirm"))
         selected_guest_ids = {int(gid) for gid in request.form.getlist("guest")}
 
-        head_party.is_confirmed = head_confirmed
-        success, err = update_party_confirmation(head_party, selected_guest_ids)
-
+        success, err = update_party_confirmation(head_party.id_pk, head_confirmed, selected_guest_ids)
         if not success:
             print(err)
 

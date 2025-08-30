@@ -73,67 +73,67 @@
     const guestBoxes = document.querySelectorAll('.guest-checkbox');
     const optOutBtn = document.getElementById('optOutBtn');
     const form = document.getElementById('confirmForm');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     function setGuestBoxesEnabled(enabled) {
-      guestBoxes.forEach(cb => cb.disabled = !enabled);
+      guestBoxes.forEach(cb => {
+        cb.disabled = !enabled;
+        if (!enabled) cb.checked = false;  // uncheck guests if disabled
+      });
     }
 
-    //Sets checkboxes to their original state
+    function updateButtons() {
+      if (headCheckbox.checked) {
+        submitBtn.disabled = false;
+        optOutBtn.disabled = true;
+      } else {
+        submitBtn.disabled = true;
+        optOutBtn.disabled = false;
+      }
+    }
+
+    // Initialize on page load
     setGuestBoxesEnabled(!!headCheckbox.checked);
+    updateButtons();
 
     headCheckbox.addEventListener('change', () => {
       setGuestBoxesEnabled(headCheckbox.checked);
+      updateButtons();
     });
 
     // Helper to ensure the popup is awaited
     function showPopup(popupFunc, message) {
       return new Promise((resolve) => {
-        // popupFunc is successPopup or errorPopup
         popupFunc(message).then(resolve);
       });
     }
 
-    // Function to POST form via fetch, then show popup, then go back
     async function postFormAndShowPopup(popupFunc, message) {
-      // Build form data
       const formData = new FormData(form);
-
-      // Remove unchecked guest checkboxes
-      guestBoxes.forEach(cb => {
-        if (!cb.checked) formData.delete(cb.name);
-      });
-
       try {
-        // POST asynchronously to Flask
         const response = await fetch(form.action, {
           method: 'POST',
           body: formData
         });
 
-        // Show popup and wait for user to click OK
         await showPopup(popupFunc, message);
-
-        // After popup closes, go back to previous page
         window.history.back();
-
       } catch (err) {
         await showPopup(errorPopup, "Error: " + err);
         window.history.back();
       }
     }
 
-    // Sends Successful message
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       postFormAndShowPopup(successPopup, "Confirmación guardada con éxito. ¡Gracias!");
     });
 
-    // Clears all checkboxes and sends sad to see u go message
     optOutBtn.addEventListener('click', function (e) {
       e.preventDefault();
       headCheckbox.checked = false;
-      guestBoxes.forEach(cb => cb.checked = false);
-      setGuestBoxesEnabled(false);
+      setGuestBoxesEnabled(false);  // clears and disables guests
+      updateButtons();
       postFormAndShowPopup(successPopup, "Has optado por no asistir. ¡Esperamos verte en otra ocasión!");
     });
   </script>

@@ -32,37 +32,33 @@ def get_head_party_by_id(head_party_id):
 def get_guests_by_ids(guest_ids):
     return Guest.query.filter(Guest.id_pk.in_(guest_ids)).all()
 
-## Method to update database with RSVP confirmation
-def update_party_confirmation(Head_Party, attending_guest_ids):
+
+def update_party_confirmation(head_party_id, head_confirmed, attending_guest_ids):
     try:
-        head = HeadParty.query.get(Head_Party.id_pk)
+        head = HeadParty.query.get(head_party_id)
         if not head:
             return False, "Encargado no encontrado."
 
-        # Gets none repeated attending guest ids
         attending_set = set(int(i) for i in (attending_guest_ids or []))
 
-        # Query all guests that belong to this head_party
-        guests = Guest.query.filter_by(head_party_fk=Head_Party.id_pk).all()
+        # Update head confirmation with the actual form value
+        head.is_confirmed = head_confirmed
 
-        # Update head confirmation
-        head.is_confirmed = bool(Head_Party.is_confirmed)
-
-        # Update each guest
+        # Update guests
+        guests = Guest.query.filter_by(head_party_fk=head_party_id).all()
         for g in guests:
             g.is_attending = g.id_pk in attending_set
 
-        # Commit Data
-        db.session.add(head)
-        if guests:
-            db.session.add_all(guests)
         db.session.commit()
 
         update_sample_json()
         return True, None
+    except Exception as exc:
+        db.session.rollback()
+        return False, str(exc)
 
     except Exception as exc:
-        #If database failed to insert data then rollback to before they were inserted to preserve database integrity
+        # If database failed to insert data then rollback to before they were inserted to preserve database integrity
         db.session.rollback()
         return False, "Ocurrió un error al guardar la confirmación. Intenta nuevamente."
 
@@ -81,8 +77,7 @@ def update_sample_json():
 
         with open(json_file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
-
-        print(f"Backup refreshed at {os.path.abspath(json_file_path)}")
+            
         return True, None
 
     except Exception as e:
