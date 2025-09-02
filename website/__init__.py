@@ -17,7 +17,6 @@ def create_app():
     # !!! WARNING: This code will not run until .env is placed in root folder with the Secret Key inside !!!
     app.secret_key = os.getenv("SECRET_KEY", "fallback-insecure-dev-key")
     app.config.from_object(Config)
-
     # Ensures Data Folder is created before creating the database
     os.makedirs(os.path.dirname(Config.DB_PATH), exist_ok=True)
 
