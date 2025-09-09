@@ -1,41 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-    <link rel="icon" type="/x-icon" href="../static/images/AyCFavicon.png" />
-    <link rel="stylesheet" href="../static/css/confirmation_style.css" />
-    <script src="../static/js/script.js" defer></script>
-    <title>Claudia y Alexis</title>
-  </head>
 
-  <body class="warn-on-leave">
-    <div class="rsvp_container">
-        <nav class="navbar-home">
-          <!-- Hamburger toggle button (only after passing max width) -->
-          <a href="#" class="toggle-button">
-            <span class="toggle-bar"></span>
-            <span class="toggle-bar"></span>
-            <span class="toggle-bar"></span>
-          </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <link rel="icon" type="/x-icon" href="../static/images/AyCFavicon.png" />
+  <link rel="stylesheet" href="../static/css/confirmation_style.css" />
 
-          <!-- Navbar menu -->
-          <div class="nav-links" id="navLinks">
-            <ul>
-              <li><a href="/get_party">Home</a></li>
-              <li><a href="">Contact</a></li>
-              <li><a href="">FAQ</a></li>
-            </ul>
-          </div>
-        </nav>
-    </div>
+  <script src="../static/js/script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../static/js/alerts.js"></script>
+  <title>Claudia y Alexis</title>
+</head>
 
-  </body>
+<body class="warn-on-leave">
+  <div class="rsvp_container">
+    <nav class="navbar-home">
+      <a href="#" class="toggle-button">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <ul>
+          <li><a href="/get_party">Home</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href="">FAQ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <h1>Confirmación de asistencia</h1>
+
+  <form id="confirmForm" method="post" action="{{ url_for('views.confirm_form') }}">
+    <fieldset>
+      <legend>Encargado: {{ headOfParty.first_name }} {{ headOfParty.paternal_last_name }}</legend>
+      <label>
+        <input type="checkbox" id="head_confirm" name="head_confirm" value="1" {% if headOfParty.is_confirmed
+          %}checked{% endif %} />
+        Yo, {{ headOfParty.first_name }}, asistiré
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Invitados</legend>
+      <p>Marca los invitados que asistirán:</p>
+      <ul style="list-style: none; padding-left: 0;">
+        {% for guest in guests %}
+        <li>
+          <label>
+            <input type="checkbox" name="guest" value="{{ guest.id_pk }}" class="guest-checkbox" {% if
+              guest.is_attending %}checked{% endif %}>
+            {{ guest.first_name }} {{ (guest.initial + '.' ) if guest.initial else '' }}
+            {{ guest.paternal_last_name }} {{ guest.maternal_last_name or '' }}
+          </label>
+        </li>
+        {% endfor %}
+      </ul>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Guardar confirmación</button>
+    <button type="button" id="optOutBtn" class="btn btn-danger">Optar por no asistir</button>
+  </form>
+
+  <script>
+    const headCheckbox = document.getElementById('head_confirm');
+    const guestBoxes = document.querySelectorAll('.guest-checkbox');
+    const optOutBtn = document.getElementById('optOutBtn');
+    const form = document.getElementById('confirmForm');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    function setGuestBoxesEnabled(enabled) {
+      guestBoxes.forEach(cb => {
+        cb.disabled = !enabled;
+        if (!enabled) cb.checked = false;  // uncheck guests if disabled
+      });
+    }
+
+    function updateButtons() {
+      if (headCheckbox.checked) {
+        submitBtn.disabled = false;
+        optOutBtn.disabled = true;
+      } else {
+        submitBtn.disabled = true;
+        optOutBtn.disabled = false;
+      }
+    }
+
+    // Initialize on page load
+    setGuestBoxesEnabled(!!headCheckbox.checked);
+    updateButtons();
+
+    headCheckbox.addEventListener('change', () => {
+      setGuestBoxesEnabled(headCheckbox.checked);
+      updateButtons();
+    });
+
+    // Helper to ensure the popup is awaited
+    function showPopup(popupFunc, message) {
+      return new Promise((resolve) => {
+        popupFunc(message).then(resolve);
+      });
+    }
+
+    async function postFormAndShowPopup(popupFunc, message) {
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        await showPopup(popupFunc, message);
+        window.history.back();
+      } catch (err) {
+        await showPopup(errorPopup, "Error: " + err);
+        window.history.back();
+      }
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      postFormAndShowPopup(successPopup, "Confirmación guardada con éxito. ¡Gracias!");
+    });
+
+    optOutBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      headCheckbox.checked = false;
+      setGuestBoxesEnabled(false);  // clears and disables guests
+      updateButtons();
+      postFormAndShowPopup(successPopup, "Has optado por no asistir. ¡Esperamos verte en otra ocasión!");
+    });
+  </script>
+
+
+</body>
+
 </html>

@@ -2,11 +2,12 @@
 # Flask script to connect to the DB and get guest data.
 # New page to handle all of flasks routing. Here we can make use as a bridge for database calls
 ##
-from flask import Blueprint, render_template, request, redirect, session, url_for, flash
+from flask import (Blueprint,render_template,request,redirect,session,url_for,flash)
 from website.services.db_procedures import (
     get_head_party_with_guests_by_passcode,
     get_head_party_by_id,
     get_guests_by_ids,
+    update_party_confirmation,
 )
 
 
@@ -35,7 +36,7 @@ def landing_validation():
             # Redirects to the get_party page
             return redirect(url_for("views.get_party"))
         else:
-            #Clears the session if an incorrect password was entered so the pop up doesnt keep appearing on refresh
+            # Clears the session if an incorrect password was entered so the pop up doesnt keep appearing on refresh
             session.clear()
             # If the code was incorrect then show a pop up and refresh back to landing page
             flash("Código inválido. Intenta de nuevo.")
@@ -71,10 +72,25 @@ def get_party():
     )
 
 
-@views.route("/confirm_form")
+@views.route("/confirm_form", methods=["GET", "POST"])
 def confirm_form():
-    party_list = request.args.get("party_list")
-    return render_template("confirmation_form.html", partyList=party_list)
+    #Get Party Data from the session
+    party_list = session.get("party_data")
+    head_party = get_head_party_by_id(party_list["head_party"])
+    guests = get_guests_by_ids(party_list["guests"])
+
+    if request.method == "POST":
+        head_confirmed = bool(request.form.get("head_confirm"))
+        selected_guest_ids = {int(gid) for gid in request.form.getlist("guest")}
+
+        success, err = update_party_confirmation(head_party.id_pk, head_confirmed, selected_guest_ids)
+        if not success:
+            print(err)
+
+    return render_template(
+        "confirmation_form.html", headOfParty=head_party, guests=guests
+    )
+
 
 @views.route("/render_faq")
 def render_faq():
