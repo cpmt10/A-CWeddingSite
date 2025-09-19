@@ -15,6 +15,11 @@
   src: url(../fonts/glacial-indifference.regular.otf);
 }
 
+@font-face {
+  font-family: Amoresa;
+  src: url(../fonts/Amoresa.ttf);
+}
+
 /** Base CSS for the whole file. This may be overriden per class, id, etc. **/
 html,
 body {
@@ -33,20 +38,6 @@ body {
 
 ::selection {
   background: rgb(255, 255, 255);
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #6a6926;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
-}
-
-footer p {
-  margin: 10px;
 }
 
 /** CSS for nav-bar. **/
@@ -121,31 +112,25 @@ a {
   border-radius: 20px;
 }
 
-/** CSS for index introduction section (home) **/
+/** CSS for Title **/
 
-.index-introduction {
-  display: flex;
-  flex-direction: column;
+.confirmation-title h1 {
+  padding-top: 30px;
+  width: 100%;
+  font-size: 35px;
+  font-family: Amoresa;
   justify-content: center;
-  text-align: center;
-  font-family: theSeasons;
-  text-decoration: none;
-  color: #ffffff;
+  color: #6a6926;
 }
 
-.index-introduction .index-image-container {
-  position: relative;
-  display: inline-block;
+/** CSS for confirmation form **/
+#confirmForm {
+  padding: 15px;
+  color: #6a6926;
 }
 
-.index-introduction .overlay-text {
-  width: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  text-align: center;
+#confirmBtn {
+  background-color: #6a6926;
 }
 
 /**
