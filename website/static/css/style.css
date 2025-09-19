@@ -48,6 +48,11 @@ body {
   color: #6a6926;
 }
 
+.program-desc {
+  font-family: glaciarIndifference;
+  ;
+}
+
 .divider {
   width: 80%;
 }
@@ -341,6 +346,7 @@ a {
   justify-content: center;
   gap: 20px;
   margin-bottom: 25px;
+  font-weight: bolder;
 }
 
 .day {

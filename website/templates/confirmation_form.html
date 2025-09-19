@@ -28,8 +28,8 @@
       <div class="nav-links" id="navLinks">
         <ul>
           <li><a href="/get_party">Home</a></li>
-          <li><a href="">Contact</a></li>
-          <li><a href="">FAQ</a></li>
+          <li><a href="tel:+17876431485">Contacto</a></li>
+          <li><a href="render_faq?{{partyList}}">FAQ</a></li>
         </ul>
       </div>
     </nav>
@@ -41,7 +41,7 @@
 
   <form id="confirmForm" method="post" action="{{ url_for('views.confirm_form') }}">
     <fieldset>
-      <legend>Invitado(a) Principal: {{ headOfParty.first_name }} {{ headOfParty.paternal_last_name }}</legend>
+      <legend><b>Invitado(a) Principal:</b> {{ headOfParty.first_name }} {{ headOfParty.paternal_last_name }}</legend>
       <label>
         <input type="checkbox" id="head_confirm" name="head_confirm" value="1" {% if headOfParty.is_confirmed
           %}checked{% endif %} />
@@ -51,7 +51,7 @@
 
     <fieldset>
       {% if guests %}
-        <legend>Invitados</legend>
+        <legend><b>Invitados</b></legend>
         <p>Marca los invitados que asistirán:</p>
       {% endif %}
       <ul style="list-style: none; padding-left: 0;">
