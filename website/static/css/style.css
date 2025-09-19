@@ -382,6 +382,8 @@ a {
 
 .countdown h1 {
   font-size: 100px;
+  color: #f8f8ee;
+  margin-bottom: 0;
 }
 
 .countdown_container {
@@ -399,8 +401,8 @@ a {
 .hours_container,
 .minutes_container,
 .seconds_container {
-  background-color: #6a6926;
-  color: #f8f8ee;
+  background-color: #f8f8ee;
+  color: #6a6926;
   border-radius: 10%;
   margin: 10px;
   height: 150px;

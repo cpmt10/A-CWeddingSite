@@ -35,21 +35,25 @@
     </nav>
   </div>
 
-  <h1>Confirmación de asistencia</h1>
+  <div class="confirmation-title">
+    <h1><center>Confrimación de asistencia</center></h1>
+  </div>
 
   <form id="confirmForm" method="post" action="{{ url_for('views.confirm_form') }}">
     <fieldset>
-      <legend>Encargado: {{ headOfParty.first_name }} {{ headOfParty.paternal_last_name }}</legend>
+      <legend>Invitado(a) Principal: {{ headOfParty.first_name }} {{ headOfParty.paternal_last_name }}</legend>
       <label>
         <input type="checkbox" id="head_confirm" name="head_confirm" value="1" {% if headOfParty.is_confirmed
           %}checked{% endif %} />
-        Yo, {{ headOfParty.first_name }}, asistiré
+        Yo, {{ headOfParty.first_name }}, asistiré a ambas actividades.
       </label>
     </fieldset>
 
     <fieldset>
-      <legend>Invitados</legend>
-      <p>Marca los invitados que asistirán:</p>
+      {% if guests %}
+        <legend>Invitados</legend>
+        <p>Marca los invitados que asistirán:</p>
+      {% endif %}
       <ul style="list-style: none; padding-left: 0;">
         {% for guest in guests %}
         <li>
@@ -64,7 +68,7 @@
       </ul>
     </fieldset>
 
-    <button type="submit" class="btn btn-primary">Guardar confirmación</button>
+    <button type="submit" id ="confirmBtn" class="btn btn-primary">Guardar confirmación</button>
     <button type="button" id="optOutBtn" class="btn btn-danger">Optar por no asistir</button>
   </form>
 
