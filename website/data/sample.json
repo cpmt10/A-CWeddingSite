@@ -162,7 +162,16 @@
             "passcode": {
                 "id_pk": "p7ewjdqNtB"
             },
-            "guests": []
+            "guests": [
+                {
+                    "id_pk": 36,
+                    "first_name": "Un(a)",
+                    "initial": null,
+                    "paternal_last_name": "invitado(a)",
+                    "maternal_last_name": null,
+                    "is_attending": false
+                }
+            ]
         },
         {
             "id_pk": 11,
@@ -269,22 +278,6 @@
                     "paternal_last_name": "Rodriguez",
                     "maternal_last_name": null,
                     "is_attending": false
-                },
-                {
-                    "id_pk": 9,
-                    "first_name": "Ariana",
-                    "initial": null,
-                    "paternal_last_name": "Rodriguez",
-                    "maternal_last_name": null,
-                    "is_attending": false
-                },
-                {
-                    "id_pk": 10,
-                    "first_name": "Adrian",
-                    "initial": null,
-                    "paternal_last_name": "Rodriguez",
-                    "maternal_last_name": null,
-                    "is_attending": false
                 }
             ]
         },
@@ -359,9 +352,9 @@
             "guests": [
                 {
                     "id_pk": 15,
-                    "first_name": "Nancy",
+                    "first_name": "Un(a)",
                     "initial": null,
-                    "paternal_last_name": "",
+                    "paternal_last_name": "invitado(a)",
                     "maternal_last_name": null,
                     "is_attending": false
                 }
@@ -380,9 +373,9 @@
             "guests": [
                 {
                     "id_pk": 16,
-                    "first_name": "Invitado(a)",
+                    "first_name": "Un(a)",
                     "initial": null,
-                    "paternal_last_name": "adicional",
+                    "paternal_last_name": "invitado(a)",
                     "maternal_last_name": null,
                     "is_attending": false
                 }
@@ -646,9 +639,9 @@
             "guests": [
                 {
                     "id_pk": 30,
-                    "first_name": "Wilenice",
+                    "first_name": "Un(a)",
                     "initial": null,
-                    "paternal_last_name": "",
+                    "paternal_last_name": "invitado(a)",
                     "maternal_last_name": null,
                     "is_attending": false
                 }
@@ -719,6 +712,27 @@
                     "first_name": "Damari",
                     "initial": null,
                     "paternal_last_name": "Abreu",
+                    "maternal_last_name": null,
+                    "is_attending": false
+                }
+            ]
+        },
+        {
+            "id_pk": 36,
+            "first_name": "Ariana",
+            "initial": null,
+            "paternal_last_name": "Rodriguez",
+            "maternal_last_name": null,
+            "is_confirmed": false,
+            "passcode": {
+                "id_pk": "i3Y2RQzvRj"
+            },
+            "guests": [
+                {
+                    "id_pk": 37,
+                    "first_name": "Un(a)",
+                    "initial": null,
+                    "paternal_last_name": "invitado(a)",
                     "maternal_last_name": null,
                     "is_attending": false
                 }
