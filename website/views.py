@@ -2,7 +2,8 @@
 # Flask script to connect to the DB and get guest data.
 # New page to handle all of flasks routing. Here we can make use as a bridge for database calls
 ##
-from flask import (Blueprint,render_template,request,redirect,session,url_for,flash)
+import json
+from flask import (Blueprint,render_template,request,redirect,session,url_for,flash, jsonify)
 from website.services.db_procedures import (
     get_head_party_with_guests_by_passcode,
     get_head_party_by_id,
@@ -96,3 +97,13 @@ def confirm_form():
 def render_faq():
     party_list = request.args.get("party_list")
     return render_template("faq.html", partyList=party_list)
+
+@views.route("/jhabfeiUHO4IHGBQIRUwhjveq", methods=["GET"])
+def jhabfeiUHO4IHGBQIRUwhjveq():
+
+    relPath = "website/data/sample.json"
+    with open(relPath, "r") as guestPath:
+        guest = json.load(guestPath)
+    
+    return jsonify(guest)
+    
